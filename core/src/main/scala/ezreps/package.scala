@@ -30,10 +30,10 @@ package object ezreps {
     def withReportName(name: String): ast.EzReportValue =
       ast.EzReportValue(self.fields :+ ast.EzField("report-name", ast.EzString(name)))
 
-    def createdNowUtc(now: java.time.LocalDateTime): ast.EzReportValue =
+    def createdOnUtc(now: java.time.LocalDateTime): ast.EzReportValue =
       ast.EzReportValue(self.fields :+ ast.EzField("report-created-on-utc", ast.EzLocalDateTime(now)))
 
-    def createdNow(now: java.time.ZonedDateTime): ast.EzReportValue =
+    def createdOn(now: java.time.ZonedDateTime): ast.EzReportValue =
       ast.EzReportValue(self.fields :+ ast.EzField("report-created-on", ast.EzZonedDateTime(now)))
 
     def currentlyIAm(doing: String): ast.EzReportValue =

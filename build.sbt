@@ -11,6 +11,7 @@ lazy val core = project.in(file("core"))
 
 lazy val json4s = project.in(file("ezreps-json4s"))
   .settings(commonSettings: _*)
+  .dependsOn(core)
 
 lazy val root = project.in(file("."))
   .aggregate(core, json4s)
