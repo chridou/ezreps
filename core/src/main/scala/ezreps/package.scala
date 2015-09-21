@@ -2,6 +2,7 @@
 
 package object ezreps extends util.EzFuns {
   type EzReport = ast.EzReportValue
+  val EzReport = ast.EzReportValue
 
   type EzFields = Vector[ast.EzField]
 
