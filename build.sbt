@@ -2,8 +2,8 @@ name := "root"
 
 val commonSettings = Seq(
   organization := "org.chridou",
-  version := "0.4",
-  scalaVersion := "2.11.6",
+  version := "0.5",
+  scalaVersion := "2.11.7",
   scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8"))
 
 lazy val core = project.in(file("core"))
