@@ -3,7 +3,7 @@ package util
 
 import ezreps.ast
 
-object NumericOps {
+object NumericBinOps {
   def floatOp[T: EzValueConverter](a: ast.EzValue, b: ast.EzValue)(op: (Double, Double) ⇒ T): ast.EzValue = {
     (a, b) match {
       case (ast.EzError(_), _)                 ⇒ ast.EzError("No operation when the first operator is an error.")

@@ -40,7 +40,10 @@ trait EzReportManipulationOps {
 
   def subReport(label: String, subFields: ast.EzField*): ast.EzReportValue =
     ast.EzReportValue(self.fields :+ ast.EzField(label, ast.EzReportValue(subFields.toVector))) 
-    
+ 
+ def configSection(subFields: ast.EzField*): ast.EzReportValue =
+    ast.EzReportValue(self.fields :+ ast.EzField("configuration", ast.EzReportValue(subFields.toVector))) 
+     
   def removeNotAvailable: ast.EzReportValue =
     ast.EzReportValue(self.fields.filter {
       case ast.EzField(_, ast.EzNotAvailable) ⇒ false
