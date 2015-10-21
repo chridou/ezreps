@@ -39,11 +39,14 @@ trait EzReportManipulationOps {
     ast.EzReportValue(self.fields :+ ast.EzField("age", ast.EzDuration(duration)))
 
   def subReport(label: String, subFields: ast.EzField*): ast.EzReportValue =
-    ast.EzReportValue(self.fields :+ ast.EzField(label, ast.EzReportValue(subFields.toVector))) 
- 
- def configSection(subFields: ast.EzField*): ast.EzReportValue =
-    ast.EzReportValue(self.fields :+ ast.EzField("configuration", ast.EzReportValue(subFields.toVector))) 
-     
+    ast.EzReportValue(self.fields :+ ast.EzField(label, ast.EzReportValue(subFields.toVector)))
+
+  def configSection(subFields: ast.EzField*): ast.EzReportValue =
+    ast.EzReportValue(self.fields :+ ast.EzField("configuration", ast.EzReportValue(subFields.toVector)))
+
+  def addKeyValues[T](kvs: Map[String, T])(implicit conv: EzValueConverter[T]): ast.EzReportValue =
+    ~~(kvs.toStream.map { case (k, v) ⇒ ezreps.ast.EzField(k, conv.convert(v)) })
+
   def removeNotAvailable: ast.EzReportValue =
     ast.EzReportValue(self.fields.filter {
       case ast.EzField(_, ast.EzNotAvailable) ⇒ false
