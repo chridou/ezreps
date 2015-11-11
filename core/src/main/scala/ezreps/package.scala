@@ -6,7 +6,6 @@ package object ezreps extends util.EzFuns {
 
   type EzFields = Vector[ast.EzField]
 
-
   object Implicits extends util.EzValueIdentityConverters with util.EzValueConverters with util.EzValueOptionConverters
 
   implicit class EzReportOpsInst(val self: ast.EzReportValue) extends util.EzReportManipulationOps with util.EzReportQueryOps

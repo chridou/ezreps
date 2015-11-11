@@ -2,7 +2,7 @@ name := "root"
 
 val commonSettings = Seq(
   organization := "org.chridou",
-  version := "0.6.1",
+  version := "0.6.2",
   scalaVersion := "2.11.7",
   scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8"))
 

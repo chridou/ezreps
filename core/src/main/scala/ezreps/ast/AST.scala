@@ -11,6 +11,7 @@ final case class EzLocalDateTime(value: java.time.LocalDateTime) extends EzBasic
 final case class EzZonedDateTime(value: java.time.ZonedDateTime) extends EzBasicValue
 final case class EzDuration(value: java.time.Duration) extends EzBasicValue
 final case class EzError(message: String) extends EzBasicValue
+final case class EzCollection(values: List[EzValue]) extends EzBasicValue
 case object EzNotAvailable extends EzBasicValue
 
 final case class EzField(label: String, value: EzValue)

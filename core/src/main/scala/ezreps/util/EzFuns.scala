@@ -7,4 +7,6 @@ trait EzFuns {
 
   implicit def toField[T: EzValueConverter](v: (String, T)): ast.EzField = ast.EzField(v._1, toAST(v._2))
 
+  implicit def traversableToEzCollection[T: EzValueConverter](what: Traversable[T]): ast.EzCollection = ast.EzCollection(what.map(x => toAST(x)).toList)
+  
 }
