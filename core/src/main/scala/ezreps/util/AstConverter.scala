@@ -35,6 +35,11 @@ trait EzValueIdentityConverters {
     def convert(value: ast.EzError): ast.EzValue = value
   }
 
+  implicit val RValueIdentityConverterCollectionInst: EzValueConverter[ast.EzCollection] = new EzValueConverter[ast.EzCollection] {
+    def convert(value: ast.EzCollection): ast.EzValue = value
+  }
+
+  
   implicit val RValueIdentityConverterReportInst: EzValueConverter[ast.EzReportValue] = new EzValueConverter[ast.EzReportValue] {
     def convert(value: ast.EzReportValue): ast.EzValue = value
   }
@@ -71,7 +76,6 @@ trait EzValueConverters {
   implicit val EzValueConverterDurationInst: EzValueConverter[java.time.Duration] = new EzValueConverter[java.time.Duration] {
     def convert(value: java.time.Duration): ast.EzValue = ast.EzDuration(value)
   }
-
 }
 
 trait EzValueOptionConverters { self: EzValueConverters with EzValueIdentityConverters ⇒
